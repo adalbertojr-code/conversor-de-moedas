@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Câmbio — moedas e criptomoedas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+  <div class="ticker" role="marquee" aria-label="Cotações em tempo real">
+    <div class="ticker-rotulo"><i></i><span id="ticker-rotulo">CARREGANDO</span></div>
+    <div class="ticker-janela"><div class="ticker-trilho" id="ticker"></div></div>
+  </div>
+
+  <header class="topo">
+    <h1>Câmbio</h1>
+    <div class="status">
+      <span class="ponto carregando" id="ponto"></span>
+      <span id="status-texto">Buscando cotações…</span>
+      <button class="btn-atualizar" id="btn-tema" type="button" aria-label="Alternar entre tema claro e escuro">Tema claro</button>
+      <button class="btn-atualizar" id="btn-atualizar" type="button">Atualizar</button>
+    </div>
+  </header>
+
+  <main class="grade">
+    <section class="caixa heroi" aria-label="Conversor">
+      <div class="campo">
+        <label for="valor">Valor</label>
+        <div class="linha-campo">
+          <input id="valor" type="text" inputmode="decimal" value="1" autocomplete="off">
+          <div class="seletor"><span class="selo grande" id="icone-de"></span><select id="de" aria-label="Moeda de origem"></select></div>
+        </div>
+      </div>
+      <div class="separador"><button class="btn-trocar" id="btn-trocar" type="button">Inverter</button></div>
+      <div class="campo">
+        <label for="para">Converter para</label>
+        <div class="seletor"><span class="selo grande" id="icone-para"></span><select id="para"></select></div>
+      </div>
+      <div class="resultado" id="resultado" aria-live="polite">
+        <div class="de-linha" id="res-origem"></div>
+        <div class="valor" id="res-valor">—</div>
+        <div class="taxa" id="res-taxa"></div>
+        <div class="aviso-estimado" id="res-aviso"></div>
+      </div>
+    </section>
+
+    <section class="caixa painel" aria-label="Painel de cotações">
+      <h2>Quanto vale 1 <span id="painel-moeda">USD</span></h2>
+      <p class="dica">Clique em uma linha para escolher o destino.</p>
+      <div class="abas" id="abas">
+        <button class="aba ativa" type="button" data-aba="todas">Todas</button>
+        <button class="aba" type="button" data-aba="fiat">Moedas</button>
+        <button class="aba" type="button" data-aba="cripto">Cripto</button>
+      </div>
+      <input id="busca" type="search" placeholder="Buscar por nome ou código" autocomplete="off">
+      <ul class="lista" id="lista"></ul>
+    </section>
+  </main>
+
+  <nav class="abas-sec" id="abas-sec" aria-label="Seções secundárias">
+    <button class="aba-sec ativa" type="button" data-alvo="sec-historico">Histórico de preço</button>
+    <button class="aba-sec" type="button" data-alvo="sec-alertas">Alertas <span class="contador" id="contador-alertas"></span></button>
+  </nav>
+
+  <section class="caixa grafico-caixa" id="sec-historico" aria-label="Histórico de preço">
+    <div class="grafico-topo">
+      <div>
+        <h2>Histórico de <span id="grafico-titulo"></span></h2>
+        <p class="dica" id="grafico-dica">Passe o mouse (ou o dedo) sobre o gráfico.</p>
+      </div>
+      <div class="abas" id="periodos">
+        <button class="aba" type="button" data-dias="7">7 dias</button>
+        <button class="aba" type="button" data-dias="30">30 dias</button>
+        <button class="aba" type="button" data-dias="90">90 dias</button>
+        <button class="aba" type="button" data-dias="365">1 ano</button>
+      </div>
+    </div>
+    <div id="grafico"></div>
+    <div class="stats" id="grafico-stats"></div>
+  </section>
+
+  <section class="caixa alertas-caixa" id="sec-alertas" aria-label="Alertas de preço" hidden>
+    <h2>Alertas de preço</h2>
+    <p class="dica">Receba um aviso quando uma cotação passar do valor que você definir. Funciona enquanto esta página estiver aberta.</p>
+    <form class="form-alerta" id="form-alerta">
+      <div class="campo"><label for="alerta-de">Quando o preço de 1</label><select id="alerta-de"></select></div>
+      <div class="campo"><label for="alerta-para">em</label><select id="alerta-para"></select></div>
+      <div class="campo"><label for="alerta-cond">ficar</label>
+        <select id="alerta-cond"><option value="acima">acima de</option><option value="abaixo">abaixo de</option></select></div>
+      <div class="campo"><label for="alerta-valor">valor</label>
+        <input id="alerta-valor" type="text" inputmode="decimal" placeholder="ex.: 6,00" autocomplete="off"></div>
+      <button class="btn-trocar" type="submit">Criar alerta</button>
+    </form>
+    <p class="dica" id="alerta-dica"></p>
+    <p id="alerta-erro" role="alert"></p>
+    <ul class="lista-alertas" id="alertas-lista"></ul>
+    <p class="dica" id="alerta-notif"></p>
+  </section>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="js/conversao.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
