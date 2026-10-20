@@ -54,8 +54,7 @@ h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; }
 
 /* Conversor */
 .campo label { display: block; font-size: .82rem; color: var(--suave); margin-bottom: 8px; }
-.linha-campo { display: grid; grid-template-columns: 1fr 240px; gap: 10px; }
-@media (max-width: 480px) { .linha-campo { grid-template-columns: 1fr; } }
+.linha-campo { display: grid; grid-template-columns: 1fr; gap: 12px; }
 input, select {
   width: 100%; background: var(--fundo); border: 1px solid var(--linha);
   border-radius: 10px; padding: 14px; font-size: .95rem;
