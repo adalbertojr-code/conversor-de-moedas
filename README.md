@@ -3,8 +3,8 @@
 Conversor feito com **HTML, CSS e JavaScript puro** (sem frameworks), com cotações buscadas de APIs públicas.
 Projeto de estudo para praticar DOM, eventos, `fetch` com `async/await`, `localStorage` e tratamento de falhas.
 
-<!-- Adicione aqui um print ou GIF da página, por exemplo: ![Tela do conversor](docs/tela.png) -->
-
+   ![Tela do conversor](docs/tela.png)
+   
 **Demo:** _(https://adalbertojr-code.github.io/conversor-de-moedas/)_
 
 ## Funcionalidades
