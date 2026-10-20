@@ -5,7 +5,7 @@ Projeto de estudo para praticar DOM, eventos, `fetch` com `async/await`, `localS
 
 <!-- Adicione aqui um print ou GIF da página, por exemplo: ![Tela do conversor](docs/tela.png) -->
 
-**Demo:** _(link do GitHub Pages)_
+**Demo:** _(https://adalbertojr-code.github.io/conversor-de-moedas/)_
 
 ## Funcionalidades
 
