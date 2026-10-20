@@ -5,7 +5,7 @@ Projeto de estudo para praticar DOM, eventos, `fetch` com `async/await`, `localS
 
    ![Tela do conversor](docs/tela.png)
    
-**Demo:** _(https://adalbertojr-code.github.io/conversor-de-moedas/)_
+**Demo:** https://adalbertojr-code.github.io/conversor-de-moedas/
 
 ## Funcionalidades
 
